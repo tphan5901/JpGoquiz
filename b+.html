@@ -19,11 +19,11 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <style>
         .start-screen{
-          height: 75vh;
+          height: 60vh;
           padding: 40px;
             margin-left: 20%;
             margin-right: 20%;
-            margin-top: 6%;
+            margin-top: 12%;
             border-radius: 20px;
         }
         .user-score{
@@ -41,13 +41,13 @@
             border-radius: 20px;
         }
         .q{
-            margin-top: 80%;
             border-radius: 5px;
             padding-left: 4%;
             padding-top: 5px;
             padding-bottom: 5px;
             padding-right: 4%;
         }
+        
         .restartBtn{
             margin-top: 80%;
             border-radius: 5px;
@@ -57,12 +57,14 @@
             padding-right: 4%;
         }
         .f{
-            margin-top: 80%;
             border-radius: 5px;
             padding-left: 4%;
             padding-top: 5px;
             padding-bottom: 5px;
             padding-right: 4%;
+        }
+        .o{
+            margin-top: 6%;
         }
         .options-div{
             width: 100%;
@@ -126,7 +128,7 @@
             -ms-user-select: none;
         }
         .kami{
-            width: 50%;
+            width: 30%;
             user-select: none;
             -moz-user-select: none;
             -webkit-user-drag: none;
@@ -148,13 +150,13 @@
             }
         }
         .timer{
-            margin-left: 63%;
+            margin-left: 70%;
         }
         .time-left{
             margin-left: 1%;
         }
         .scroller {
-            height: 150px; /* Set the desired height for the scrollable container */
+            height: 180px; /* Set the desired height for the scrollable container */
             overflow-y: auto;
         }
         .select-box {
@@ -302,7 +304,7 @@
             <h9> This page in developement, if there are problems. send a request to my twitter account</h9>
             <div class="timer">
                 <button class="btn-success c btn-outline-dark text-light mt-5 p-3 " onClick="toggleTimer()">Toggle timer</button>
-                <img src="./images/pretty-innocent-blue-eyes-of-kamisato-ayaka-genshin-impact-wallpaper-2160x3840_206.jpg" class="kami">
+                <img src="./images/53-clock-png-image.png" class="kami">
                 <span class="time-left text-dark"></span>
             </div>
             
@@ -319,11 +321,13 @@
            
         </div>
 
+        <div class="o">
          <h class="mr-1">Your answer</h>
         <input type="text" class="p-2 input" id = "answer"> 
         <button id = "next" class="btn-info btn-outline-dark text-light q mt-5 ">Next</button>
         <button id = "previous" class="btn-primary btn-outline-dark text-light f mt-5 ">Previous</button>
         <button id = "submit" class="btn-warning btn-outline-dark text-light q mt-5 ">Check answers</button>
+    </div>
     </div>
     <div class="score-container hide text-light">
         <div id = "user-score">Score</div>
@@ -752,7 +756,7 @@ function initial() {
     questionContainer.innerHTML = "";
     questionsCount = 0;
     scoreCount = 0;
-    setTime = 2;
+    setTime = 7200;
     createQuiz();
     displayQuestion(questionsCount);
     displayContainer.classList.remove("hide");
