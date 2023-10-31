@@ -612,16 +612,12 @@ function displayCorrectAnswer() {
                 questionDiv.appendChild(correctAnswerElement);
             }
 }
-
-
+    
 let userAnswers = new Array(questionsStorage.length).fill("");
 const answerInput = document.getElementById("answer");
-
-
 questionsStorage.forEach((question) => {
     question.submitted = false;
 });
-
 
 submitBtn.addEventListener("click", () => {
     if (answerInput.value === questionsStorage[questionsCount].answer || answerInput.value === questionsStorage[questionsCount].answer2) {
@@ -797,7 +793,7 @@ window.onload = () => {
 
 
 function displayCorrectAnswerss() {
-    shouldClearAnswers = false; // Set to false when displaying correct answers
+    shouldClearAnswers = false; 
 
     for (let i = 0; i < questionsStorage.length; i++) {
         const questionDiv = document.querySelectorAll(".container-mid")[i];
@@ -870,19 +866,18 @@ let img2 = document.getElementById("img2");
 
 function fadeImg(){
     fadeInAndOut(img, 4000, function () { 
-                                        setTimeout(() => {
-                                            fadeOut(img, 1, function () { 
-                                                fadeInAndOut(img2, 2000, function () { 
-                                                    setTimeout(() => {
-                                                        fadeOut(img2, 1, function () { 
-                                                               
-                                                                                                            });
-                                                                                                        }, 1000);
-                                                                                                    });
-                                                                                                });
-                                                                                            }, 1200);
-                                                                                        });
-                                                                                    };
+        setTimeout(() => {
+            fadeOut(img, 1, function () { 
+                fadeInAndOut(img2, 2000, function () { 
+                    setTimeout(() => {
+                        fadeOut(img2, 1, function () { 
+                                                });
+                                        }, 1000);
+                                            });
+                                        });
+                                }, 1200);
+                                });
+                            };
                                                                               
                                                                                                         
 
@@ -908,7 +903,6 @@ function fadeInAndOutElements() {
                                                                                                     fadeInAndOut(h7, 400, function () {
                                                                                                         setTimeout(() => {
                                                                                                             fadeOut(h7, 500, function () {
-                                                                                                                // ...
                                                                                                             });
                                                                                                         }, 1000);
                                                                                                     });
@@ -930,7 +924,7 @@ function fadeInAndOutElements() {
                                     });
                                 }, 1000);
                             });
-        };
+                         };
     
 function fadeInAndOut(element, duration, callback) {
     element.style.display = "block";
