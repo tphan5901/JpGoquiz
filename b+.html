@@ -274,17 +274,17 @@
      
         @media (max-width: 550px){
             .start-screen{
-                height: 65vh;
-                width: 120vh;
+                height: 70vh;
+                width: 200%;
             }
             #divCountDownBar{
-                width: 100px;
+                width: 200px;
             }
             .select-box{
-                width: 65%;
+                width: 30%;
             }
             .scroller {
-                height: 90px;
+                height: 80px;
                 overflow-y: auto;
             }
         }
@@ -305,28 +305,43 @@
                 overflow-y: auto;
             }
         }
-        @media (max-width: 1050px){
+       @media (max-width: 1050px){
             .start-screen{
-                height: 115vh;
-                width: 180vh;
+                height: 100vh;
+                width: 60vh;
             }
             #divCountDownBar{
-                width: 600px;
+                width: 1000px;
                 margin-left: 5%;
             }
+            .select-box{
+                width: 30%;
+            }
             .scroller {
-                height: 120px; 
-                overflow-y: auto;
+                height: 100px; 
+            }
+        }
+        @media only screen and (max-width: 550px) and (orientation: landscape){
+            .start-screen{
+                height: 70vh;
+                width: 200%;
+            }
+            #divCountDownBar{
+                width: 200px;
+                margin-left: 0%;
             }
             .select-box{
-                width: 35%;
+                width: 30%;
+            }
+            .scroller {
+                height: 80px; 
             }
         }
     </style>
 </head>
-<body class="bg-dark container-fluid d-flex"> <!--container-->
+<body class="bg-dark container-fluid"> <!--container-->
 
-    <div class="ml-3 text-white container-fluid">
+    <div class="ml-3 text-white">
         <h1 class="text-white k" id="quizloading">Quiz is loading...</h1>
         <div id="divCountDownBar" >
             <div id="divTimeLeft" class="time1"></div>
@@ -345,7 +360,7 @@
            
     </div>
 
-    <div id = "start-screen" class="bg-light start-screen hidden">
+    <div id = "start-screen" class="bg-light start-screen hidden container">
         <div class="header">
             <span class="questions text-dark">
                 1 / 200questions
