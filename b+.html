@@ -270,8 +270,6 @@
             font-size: 160px;
             z-index: 1; 
         }
-        
-     
         @media (max-width: 550px){
             .start-screen{
                 height: 35vh;
@@ -285,6 +283,22 @@
             }
             .scroller {
                 height: 80px;
+                overflow-y: auto;
+            }
+        }
+         @media only screen and (max-width: 550px) and (orientation: landscape){
+            .start-screen{
+                height: 35vh;
+                width: 200%;
+            }
+            #divCountDownBar{
+                width: 200px;
+            }
+            .select-box{
+                width: 30%;
+            }
+            .scroller {
+                height: 80px; 
                 overflow-y: auto;
             }
         }
