@@ -199,10 +199,10 @@
     
         @media (max-width: 550px){
             .start-screen{
-                height: 65vh;
+                height: 60vh;
             }
             #divCountDownBar{
-                width: 100px;
+                width: 200px;
             }
             .select-box{
                 width: 20%;
@@ -224,25 +224,40 @@
                 width: 23%;
             }
             .scroller {
-                height: 100px; /* Set the desired height for the scrollable container */
+                height: 80px; /* Set the desired height for the scrollable container */
                 overflow-y: auto;
             }
         }
-        @media (max-width: 1050px){
+      @media (max-width: 1050px){
             .start-screen{
-                height: 110vh;
-                width: 180vh;
+                height: 100vh;
+                width: 60vh;
             }
             #divCountDownBar{
-                width: 600px;
+                width: 1000px;
                 margin-left: 5%;
             }
             .select-box{
-                width: 20%;
+                width: 30%;
             }
             .scroller {
-                height: 120px; /* Set the desired height for the scrollable container */
-                overflow-y: auto;
+                height: 100px; 
+            }
+        }
+        @media only screen and (max-width: 550px) and (orientation: landscape){
+            .start-screen{
+                height: 60vh;
+                width: 200%;
+            }
+            #divCountDownBar{
+                width: 200px;
+                margin-left: 2%;
+            }
+            .select-box{
+                width: 23%;
+            }
+            .scroller {
+                height: 80px; 
             }
         }
     </style>
