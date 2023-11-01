@@ -203,12 +203,29 @@
             }
             #divCountDownBar{
                 width: 200px;
+                margin-left: 0%;
             }
             .select-box{
                 width: 20%;
             }
             .scroller {
-                height: 90px; /* Set the desired height for the scrollable container */
+                height: 80px; /* Set the desired height for the scrollable container */
+                overflow-y: auto;
+            }
+        }
+        @media only screen and (max-width: 550px) and (orientation: landscape){
+            .start-screen{
+                height: 35vh;
+            }
+            #divCountDownBar{
+                width: 200px;
+                margin-left: 0%;
+            }
+            .select-box{
+                width: 20%;
+            }
+            .scroller {
+                height: 80px; 
                 overflow-y: auto;
             }
         }
