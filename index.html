@@ -40,7 +40,7 @@
         }
 
         .w{
-            margin-top: 610px;
+            margin-top: 490px;
         }
         .q{
             margin-top: 10px;
@@ -50,30 +50,27 @@
         body{
             overflow-y: hidden;
         }
+
 </style>
-<body class = "bg-dark">
-    <div class="container mt-5">
-      
-    <div class="ml-3 text-white d-flex">
-        <p class="p-3 ml-5 mt-5">
-           So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume japanese media my whole life. Watching anime, reading manga
-           and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... 
-           probably good enough to not use google translate. Is Knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? welp, godammit. Well... here's a quiz i've made to test my own knowledge.
+<body class = "bg-dark"　lang="en">
+    <div class="container mt-5"　lang="en">
+      <button id = "Jp" class="p-3  btn-info">Switch to jp</button>
+    <div class="ml-3 text-white d-flex" >
+        <p class="p-3 ml-5 mt-5" >
+            So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume Japanese media my whole life. Watching anime, reading manga and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... probably good enough to not use Google Translate. Is knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? Well, godammit. Well... here's a quiz I've made to test my own knowledge.
            
         </p>
     </div>
 
-        <div id="home" class="flex-center flex-column">
+        <div id="home" class="flex-center flex-column" >
             <h1 class="text-white font">Quiz</h1>
             <a href="level.html" class="btn btn-success q">Start</a>
          <!--  <a href="highscore.html" class="btn btn-info p-3">Score</a>--> 
         </div>
 
-       <div class="ml-3 text-white">
+       <div class="ml-3 text-white" >
         <h1 class="h text-white">Navigation</h1>
-        <p class="p-3 ml-5 mx-auto a">
-            There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500questions. The lowest grade is C, at 100questions. You choose how many sets to complete, the quiz will be input answers only. You can use either, romanji or hiragana.
-            Toward the end, your score will be calculated
+        <p class="p-3 ml-5 mx-auto a">There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500questions. The lowest grade is C, at 100questions. You choose how many sets to complete, the quiz will be input answers only. You can use either, romanji or hiragana. Toward the end, your score will be calculated
         </p>
     </div>
 
@@ -81,7 +78,52 @@
     </div>
     
     <div class="bg-primary p-3 text-center text-light w">
-        <p> All rights reserved© edge-chumonkation site  </p>
+        <p> All rights reserved© education site  </p>
       </div>
+<script>
+const jpBtn = document.getElementById("Jp");
+
+   jpBtn.addEventListener("click", function () {
+    const hTags = document.querySelectorAll("h1");
+    const pTags = document.querySelectorAll("p");
+
+const translations = {
+  "So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume Japanese media my whole life. Watching anime, reading manga and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... probably good enough to not use Google Translate. Is knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? Well, godammit. Well... here's a quiz I've made to test my own knowledge.": 
+  "日本語を学んでいます... えっと、いつ日本語を学んだんだろう？ ずっと日本のメディアを消費してきたけど、アニメを見て、マンガを読んで、面白いネットカルチャーと交流してきたけど、流暢と言えるほどの単語を学びました。たぶん... 多分、Google 使わないほどの知識はある。こんいちは、おはよう、すごい、素晴らしい、かわいいを知っているだけで十分か？まあ、やれやれ。さて、自分の知識をテストするクイズを作ってみました。",
+  "Quiz": "クイズ",
+  "There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500 questions. The lowest grade is C, at 100 questions. You choose how many sets to complete, the quiz will be input answers only. You can use either romaji or hiragana. Toward the end, your score will be calculated":
+  "C/B/B+/A/A+のグレードがあり、各グレードは100問ずつ追加されるため、合計500問となる。最低グレードはCで、100問です。クイズの解答は入力のみです。ローマ字でもひらがなでもOK。最後に、あなたのスコアが計算されます",
+  "Navigation": "ナビゲーション",
+  "All rights reserved© education site": "無断複写©転載を禁じます©教育サイト",
+};
+
+
+hTags.forEach((element) => {
+        const originalText = element.textContent;
+        const translatedText = translations[originalText];
+        if (translatedText) {
+            element.textContent = translatedText;
+            element.setAttribute("lang", "jp");
+        } else {
+            element.setAttribute("lang", "en");
+            throw new Error(`Translation missing for "${originalText}"`);
+        }
+    });
+
+    pTags.forEach((element) => {
+        const originalText = element.textContent;
+        const translatedText = translations[originalText];
+        if (translatedText) {
+            element.textContent = translatedText;
+            element.setAttribute("lang", "jp");
+        } else {
+            // Throw an exception if not translated
+            element.setAttribute("lang", "en");
+            throw new Error(`An error occurred in your code.`);
+        }
+    });
+});
+   
+    </script>
 </body>
 </html>
