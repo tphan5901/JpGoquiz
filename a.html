@@ -814,7 +814,7 @@
 
 searchBtn.addEventListener("click", () => {
     const input = document.getElementById("input").value;
-    const userInputAsIndex = parseInt(input, 10); // Convert user input to a number
+    const userInputAsIndex = parseInt(input, 10); 
     userAnswers[questionsCount] = answerInput.value.trim();
     if (userInputAsIndex >= 1 && userInputAsIndex <= questionsStorage.length) {
         questionsCount = userInputAsIndex - 1; 
