@@ -744,9 +744,10 @@
         { id: "299", Question: "狂乱", answer: "きょうらん" , answer2: "kiyouran" ,},
     ];
 
-    function calcScore() {
+
+function calcScore() {
     const maxQuestions = questionsStorage.length;
-    return (scoreCount / maxQuestions) * 100;
+    return ((scoreCount - ifChecked) / maxQuestions) * 100;
 }
 
     const toggleTimer = () => {
@@ -804,18 +805,18 @@
         question.submitted = false;
     });
 
+    let ifChecked = 0;
     submitBtn.addEventListener("click", () => {
         if (answerInput.value === questionsStorage[questionsCount].answer || answerInput.value === questionsStorage[questionsCount].answer2) {
             displayCorrectAnswer(questionsCount);
-            scoreCount = scoreCount - 1;
         }else{ 
             if(answerInput.value == ""){
             alert("Please enter an answer before checking answer. Everytime you check answer, there will be a penalty of -1pt out of a 100 on your score. You can restart quiz anytime by refreshing the page");
             return;
             }
             displayCorrectAnswer(questionsCount);
-            scoreCount--;
         }
+        ifChecked++;
     });
 
     let shouldClearAnswers = true;
