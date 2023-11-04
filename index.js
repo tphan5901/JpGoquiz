@@ -279,3 +279,20 @@ const questionsStorage = [
     { id: "98", Question: "連絡",  options:　[ "れんらく", "れんたく", "ねんたく", "ねんらく",] , correct: "れんらく",},
     { id: "99", Question: "重量",  options:　[ "じゅうりょう", "じゅりょ", "じゅりょう", "しゆうりょう",] , correct: "じゅうりょう",},
 ];
+    
+//mobile landscape adjustment
+var pageInPortraitMode;
+
+window.addEventListener("resize", windowSizeChanged);
+
+addEventListener("load", function() {
+  pageInPortraitMode = window.innerHeight > window.innerWidth;
+  document.getElementById("viewport").setAttribute("content", "width=" + window.innerWidth + ", height=" + window.innerHeight + ", initial-scale=1.0, maximum-scale=1.0, user-scalable=0");
+})
+
+function windowSizeChanged() {
+  if (((pageInPortraitMode === true) && (window.innerHeight < window.innerWidth)) || ((pageInPortraitMode === false) && (window.innerHeight > window.innerWidth))) {
+    pageInPortraitMode = window.innerHeight > window.innerWidth;
+    document.getElementById("viewport").setAttribute("content", "width=" + window.innerWidth + ", height=" + window.innerHeight + ", initial-scale=1.0, maximum-scale=1.0, user-scalable=0");
+  }
+}
