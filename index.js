@@ -203,7 +203,7 @@ const questionsStorage = [
     { id: "22", Question: "行く先",  options: [ "ikusaki", "yukusaki", "ikusen", "ikusa",] , correct: "yukusaki",},
     { id: "23", Question: "灼眼", options: [ "sakugan", "shakugan", "shakune", "sakume",] , correct: "shakugan",},
     { id: "24", Question: "眼差し", options: [ "manashi", "manazashi", "manasushi", "manazushi",] , correct: "manazashi",},
-    { id: "25", Question: "記念品", options: [ "kinenshin", "kinenhin", "kinenbi", "kinenhi",] , correct: "kinenhin",},
+    { id: "25", Question: "お土産", options: [ "omiyage", "oyage", "oyouge", "oyage",] , correct: "omiyage",},
     { id: "26", Question: "今度", options: [ "kondo", "konkai", "imado", "imakai",] , correct: "kondo",},
     { id: "27", Question: "呼ばる", options: [ "yobaru", "yaberu", "yameru", "yoraru",] , correct: "yobaru",},
     { id: "28", Question: "煌めく", options: [ "こめく", "きらめく", "さらめく", "こうめく",] , correct: "きらめく",},
