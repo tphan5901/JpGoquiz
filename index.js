@@ -234,7 +234,7 @@ const questionsStorage = [
     { id: "53", Question: "捨てる", options: [ "suteru", "utsuteru", "tsuteru", "sutsuteru",] , correct: "suteru",},
     { id: "54", Question: "白雪", options: [ "しらゆき", "しろゆき", "ひろゆき", "ひらゆき",] , correct: "しらゆき",},
     { id: "55", Question: "太もも", options: [ "ふともも", "いぬもも", "ぶたもも", "ふたもも",] , correct: "ふともも",},
-    { id: "56", Question: "足もも", options: [ "はしもも", "あしもも", "はやしもも", "はやもも",] , correct: "あしもも",},
+    { id: "56", Question: "足音", options: [ "あしおと", "はしおと", "はやしもも", "はやそと",] , correct: "あおとと",},
     { id: "57", Question: "足", options:[ "あし", "はし", "かし", "やし",] , correct: "あし",},
     { id: "58", Question: "走る", options: [ "hashiru", "ashiru", "hayashiru", "shiru",] , correct: "hashiru",},
     { id: "59", Question: "中指",  options: [ "nakayubi", "chuubi", "chuyubi", "chuuubi",] , correct: "nakayubi",},
