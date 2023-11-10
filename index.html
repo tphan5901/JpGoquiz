@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Data Quiz</title>
-
-    <link href="style.css">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
     crossorigin="anonymous">
@@ -19,8 +16,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel = "stylesheet" href = "style.css"/>
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-
-
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   
@@ -40,7 +35,7 @@
         }
 
         .w{
-            margin-top: 490px;
+            margin-top: 430px;
         }
         .q{
             margin-top: 10px;
@@ -56,10 +51,7 @@
     <div class="container mt-5"　lang="en">
       <button id = "Jp" class="p-3  btn-info">Switch to jp</button>
     <div class="ml-3 text-white d-flex" >
-        <p class="p-3 ml-5 mt-5" >
-            So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume Japanese media my whole life. Watching anime, reading manga and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... probably good enough to not use Google Translate. Is knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? Well, godammit. Well... here's a quiz I've made to test my own knowledge.
-           
-        </p>
+<p class="p-3 ml-5 mt-5">So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume Japanese media my whole life Watching anime, reading manga and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... probably good enough to not use Google Translate Is knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? Well, godammit Well... here's a quiz I've made to test my own knowledge</p>
     </div>
 
         <div id="home" class="flex-center flex-column" >
@@ -68,33 +60,39 @@
          <!--  <a href="highscore.html" class="btn btn-info p-3">Score</a>--> 
         </div>
 
-       <div class="ml-3 text-white" >
+       <div class="ml-3 text-white">
         <h1 class="h text-white">Navigation</h1>
-        <p class="p-3 ml-5 mx-auto a">There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500questions. The lowest grade is C, at 100questions. You choose how many sets to complete, the quiz will be input answers only. You can use either, romanji or hiragana. Toward the end, your score will be calculated
-        </p>
+<p class="p-3 ml-5 mx-auto a">There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500 questions. The lowest grade is C, at 100 questions. You choose how many sets to complete, the quiz will be input answers only. You can use either romaji or hiragana. Toward the end, your score will be calculated</p>
     </div>
 
         <div id="result" class="mt-3"></div>
     </div>
     
-    <div class="bg-primary p-3 text-center text-light w">
-        <p> All rights reserved© education site  </p>
+    <div class="bg-primary p-3 text-center text-light w" lang="en">
+        <p> All rights reserved education site</p>
       </div>
 <script>
 const jpBtn = document.getElementById("Jp");
 
    jpBtn.addEventListener("click", function () {
     const hTags = document.querySelectorAll("h1");
-    const pTags = document.querySelectorAll("p");
+    const pTag = document.querySelectorAll("p");
 
 const translations = {
-  "So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume Japanese media my whole life. Watching anime, reading manga and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... probably good enough to not use Google Translate. Is knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? Well, godammit. Well... here's a quiz I've made to test my own knowledge.": 
-  "日本語を学んでいます... えっと、いつ日本語を学んだんだろう？ ずっと日本のメディアを消費してきたけど、アニメを見て、マンガを読んで、面白いネットカルチャーと交流してきたけど、流暢と言えるほどの単語を学びました。たぶん... 多分、Google 使わないほどの知識はある。こんいちは、おはよう、すごい、素晴らしい、かわいいを知っているだけで十分か？まあ、やれやれ。さて、自分の知識をテストするクイズを作ってみました。",
-  "Quiz": "クイズ",
-  "There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500 questions. The lowest grade is C, at 100 questions. You choose how many sets to complete, the quiz will be input answers only. You can use either romaji or hiragana. Toward the end, your score will be calculated":
-  "C/B/B+/A/A+のグレードがあり、各グレードは100問ずつ追加されるため、合計500問となる。最低グレードはCで、100問です。クイズの解答は入力のみです。ローマ字でもひらがなでもOK。最後に、あなたのスコアが計算されます",
-  "Navigation": "ナビゲーション",
-  "All rights reserved© education site": "無断複写©転載を禁じます©教育サイト",
+"So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume Japanese media my whole life Watching anime, reading manga and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... probably good enough to not use Google Translate Is knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? Well, godammit Well... here's a quiz I've made to test my own knowledge": 
+"日本語を学んでいます... えっと、いつ日本語を学んだんだろう？ ずっと日本のメディアを消費してきたけど、アニメを見て、マンガを読んで、面白いネットカルチャーと交流してきたけど、流暢と言えるほどの単語を学びました。たぶん... 多分、Google 使わないほどの知識はある　こんいちは、おはよう、すごい、素晴らしい、かわいいを知っているだけで十分か？まあ、やれやれ。さて、自分の知識をテストするクイズを作ってみました",
+"日本語を学んでいます... えっと、いつ日本語を学んだんだろう？ ずっと日本のメディアを消費してきたけど、アニメを見て、マンガを読んで、面白いネットカルチャーと交流してきたけど、流暢と言えるほどの単語を学びました。たぶん... 多分、Google 使わないほどの知識はある　こんいちは、おはよう、すごい、素晴らしい、かわいいを知っているだけで十分か？まあ、やれやれ。さて、自分の知識をテストするクイズを作ってみました":
+"So, i've been learning japanese... Oh wait, when did i ever learn japanese? all i've ever done is consume Japanese media my whole life Watching anime, reading manga and or interacting with their pretty interesting net culture but i've learned more than a couple words to be considered fluent. Maybe... probably good enough to not use Google Translate Is knowing konnichiwa, ohayou, sugoi, subarashii, kawaii, good enough? Well, godammit Well... here's a quiz I've made to test my own knowledge",
+"Quiz": "クイズ",
+"クイズ": "Quiz",
+"There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500 questions. The lowest grade is C, at 100 questions. You choose how many sets to complete, the quiz will be input answers only. You can use either romaji or hiragana. Toward the end, your score will be calculated":
+"グレードがあります; C/B/B+/A/A+の各グレードは、100問の追加セットを表すため、合計500問になります。最低グレードはCで、100問です。完了するセットの数を選択すると、クイズは入力回答のみになります。ローマ字でもひらがなでも使えます。最後に、スコアが計算されます",
+"グレードがあります; C/B/B+/A/A+の各グレードは、100問の追加セットを表すため、合計500問になります。最低グレードはCで、100問です。完了するセットの数を選択すると、クイズは入力回答のみになります。ローマ字でもひらがなでも使えます。最後に、スコアが計算されます":
+"There will be grades; C/B/B+/A/A+ each grade represents an additional set of 100 questions, so a total of 500 questions. The lowest grade is C, at 100 questions. You choose how many sets to complete, the quiz will be input answers only. You can use either romaji or hiragana. Toward the end, your score will be calculated",
+"Navigation": "ナビゲーション",
+"ナビゲーション":  "Navigation", 
+"All rights reserved education site": "無断複写転載を禁じます教育サイト",
+"無断複写転載を禁じます教育サイト": "All rights reserved education site",
 };
 
 
@@ -110,19 +108,23 @@ hTags.forEach((element) => {
         }
     });
 
-    pTags.forEach((element) => {
-        const originalText = element.textContent;
-        const translatedText = translations[originalText];
-        if (translatedText) {
-            element.textContent = translatedText;
+    
+    pTag.forEach((element) => {
+            const original = element.textContent;
+            const translated = translations[original];
+        try {
+            if (translated) {
+            element.textContent = translated;
             element.setAttribute("lang", "jp");
-        } else {
-            // Throw an exception if not translated
-            element.setAttribute("lang", "en");
-            throw new Error(`An error occurred in your code.`);
-        }
+            } else{
+                throw new Error("Error");
+            }
+        } catch (err) {
+            console.log("An error occurred: " + err.stack);
+    }
+        });
+   
     });
-});
    
     </script>
 </body>
