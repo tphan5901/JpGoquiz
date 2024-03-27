@@ -142,18 +142,24 @@
             width: 100%;
         }
 
-        .scroller {
-            height: 150px; 
-            overflow-y: auto;
-            border-color: black;
-        }
-        .select-box {
-            width: 100%;
-            display: flex;
-            margin-left: 90%;
-            margin-top: 5%;
-         
-        }
+     .select-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-box h3 {
+    margin-bottom: 10px; /* Add some space below the "Navigation" text */
+}
+
+.select-box div {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.input {
+    flex: 1; /* Allow input field to grow and fill available space */
+    margin-right: 10px; /* Add some space between input and button */
+}
         .scroller div button {
             cursor: pointer;
             border-radius: 5px;
