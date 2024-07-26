@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
@@ -12,17 +12,1370 @@
     integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<style>
+  
+        .start-screen{
+            height: 90vh;
+            padding: 40px;
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-top: 3%;
+            border-radius: 20px;
+        }
+        .user-score{
+          padding: 40px;
+            margin-right: 20%;
+            margin-top: 10%;
+            border-radius: 20px;
+        }
+        .score-container{
+            padding: 40px;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 10%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .q{
+            margin-top: 80%;
+            border-radius: 5px;
+            padding-left: 4%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 4%;
+        }
+        .restartBtn{     
+            margin-top: 5%;
+            border-radius: 5px;
+            padding-left: 4%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 4%;
+        }
+        .searchBtn{
+            border-radius: 5px;
+            padding-left: 4%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 4%;
+        }
+        .f{
+            margin-top: 80%;
+            border-radius: 5px;
+            padding-left: 4%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 4%;
+        }
+        .options-div{
+            width: 100%;
+            padding: 1rem;
+            margin: 0.1rem;
+            text-align: left;
+            border-radius: 4px;
+            border: 1px solid;
+        }
+        .options-div:disabled{
+            color: black;
+            cursor: not-allowed;
+        }
+        .options-div:hover {
+            background-color: rgb(255, 148, 9); 
+            color: white;
+        }
+        .sato{
+            width: 50%;
+        }
+        .k{
+            margin-left: 43%;
+        }
+        textarea {
+            border-radius: 5px;
+            width: 70%;
+            height: 240px; /* Adjust the height as needed */
+        
+            box-sizing: border-box; /* Ensures padding does not affect the overall size */
+        }
+        .hide{
+            display: none;
+        }
+        .c{
+            margin-right: 3%;
+            border-radius: 5px;
+        }
+        .incorrect{
+            background-color: white;
+            color: rgb(255, 52, 52);
+            border-color: rgb(255, 41, 41);
+        }
+        .correct{
+            background-color: white;
+            color: lightgreen;
+            border-color:  lightgreen;
+        }
+        .question{
+            font-weight: 600;
+        }
+        .questionscontainer{
+            font-size: 20px;
+            margin-left: 40px;
+        }
+
+        #loader{
+            margin-left: 40%;
+            margin-top: 10%;
+            width: 20%;
+            animation: spin 0.0001s linear infinite;
+        }
+        @keyframes spin{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        
+        #pepe {
+            animation: spin 700s linear infinite;
+        }
+        @keyframes spin{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        
+        .timer{
+            margin-left: 50%;
+        }
+        .time-left{
+            margin-left: 1%;
+        }
+        .content {
+            width: 100%;
+        }
+        .scrollnavH{
+            margin-left: 30%;
+            font-weight: 600;
+        }
+        .scroller {
+            height: 150px; 
+            overflow-y: auto;
+            border-color: black;
+        }
+        .select-box {
+            width: 17%;
+            margin-left: 50%;
+        }
+        .scroller button {
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: rgb(32, 103, 236);
+            color: white;
+        }
+        .scroller button:hover {
+            cursor: pointer;
+            background-color: #ffa339;
+            color: white;
+        }
+        .container-mid{
+            overflow-x: auto;
+        }
+        #divCountDownBar{
+            width: 1250px;
+            height: 14px;
+            margin-left: 15%;
+            margin-top: 2%;
+            border: 2px black solid;
+            background: white;
+        }
+        #divTimeLeft{
+            float: left;
+            background: rgb(0, 255, 170);
+            height: 10px;
+        }
+        .time{
+            margin-left: 70%;
+        }
+   
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .img,
+        .img2,
+        .h6,
+        .pepe,
+        .h7
+         {
+            position: absolute;
+            display: none;
+            color: white;
+        }
+        .img{
+            top: 30%;
+            right: 20%;
+            z-index: 1;
+        }
+        .img2{
+            z-index: 1;
+            top: 30%;
+            left: 20%;
+        }
+        .h1 {
+            top: 15%;
+            left: 25%;
+            font-size: 60px;
+            z-index: 1;
+        }
+
+        .h2 {
+            top: 20%;
+            font-size: 50px;
+            right: 30%;
+            z-index: 1; 
+        }
+
+        .h3 {
+            top: 30%;
+            left: 10%;
+            font-size: 50px;
+            z-index: 1; 
+        }
+
+        .h4 {
+            top: 30%;
+            right: 15%;
+            font-size: 50px;
+            z-index: 1; 
+        }
+
+        .h5 {
+            top: 40%;
+            left: 15%;
+            font-size: 50px;
+            z-index: 1; 
+        }
+
+        .h6 {
+            top: 50%;
+            font-size: 100px;
+            right: 5%;
+            z-index: 1; 
+        }
+
+        .h7 {
+            top: 50%;
+            left: 20%;
+            font-size: 160px;
+            z-index: 1; 
+        }
+        .pepe{
+            top: 75%;
+            left: 5%;
+            width: 10%;
+            z-index: 1; 
+        }
+        .kamisato{
+            width: 100%; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .kami{
+            width: 65%; /*change*/
+            height: 100%;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+         /*   filter: blur(4px);  */ 
+        }
+
+        .kami:hover{
+            filter: blur(3px);
+        }
+ 
+        @media (max-width: 550px){
+            .start-screen{
+                height: 35vh;
+            }
+            #divCountDownBar{
+                width: 200px;
+            }
+            .select-box{
+                width: 30%;
+            }
+            .scroller {
+                height: 80px; 
+            }
+        }
+        /*
+        @media (max-width: 750px){
+            .start-screen{
+                height: 40vh;
+            }
+            #divCountDownBar{
+                width: 100px;
+                margin-left: 5%;
+            }
+            .select-box{
+                width: 20%;
+            }
+            .scroller {
+                height: 90px; 
+                
+            }
+            .c{
+            font-size: 10px;
+        }
+        }
+        @media (max-width: 1050px){
+            .start-screen{
+                height: 80vh;
+                width: 60vh;
+            }
+            #divCountDownBar{
+                width: 1000px;
+                margin-left: 5%;
+            }
+            .select-box{
+                width: 17%;
+            }
+            .scroller {
+                height: 100px; 
+            }
+        }
+  */
+        /*portrait and landscape css styles*/
+        
+        @media only screen and (min-width: 350px) and (max-width: 850px) {
+            .start-screen{
+                margin-left: 0%;
+                margin-right: 0%;
+                margin-top: 0%;
+                height: 100vh;
+                width: 70vh;
+            }
+            #divCountDownBar{
+                width: 400px;
+            }
+            .select-box{
+                width: 30%;
+                height: 100%;
+            }
+            .scroller {
+                height: 80px; 
+            }
+        }
+/*
+        @media only screen and (max-width: 1050px)  {
+            .start-screen{
+                margin-left: 0%;
+                margin-right: 0%;
+                margin-top: 0%;
+                height: 200vh;
+                width: 220vh;
+            }
+            #divCountDownBar{
+                width: 800px;
+            }
+            .select-box{
+                width: 30%;
+            }
+            .scroller {
+                height: 80px; 
+            }
+        }
+    */    /* Modal Styles */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center the modal */
+    padding: 20px;
+    width: 90%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Set a maximum width */
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-title{
+align-items: start;
+display: flex;
+margin-right: 90%;
+flex-direction: start;
+flex: start;
+}
+
+
+    </style>
 </head>
-<body class="bg-dark">
-        <div class="container">
-    <div class="ml-3 text-white">
-        <h1 class="h text-white">Under construction//if i get 200messages of support between twitter and gmail, i will add 100+ listening/answers for A+ level</h1>
-     
+<body class="bg-dark container-fluid">
+
+
+    <div class="ml-3 text-white col-md-12" id="container1"> <!--container-->
+        <h1 class="text-white k" id="quizloading">Quiz is loading...</h1>
+        <div id="divCountDownBar" >
+            <div id="divTimeLeft" class="time1"></div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Instructions</h5>
+                
+                </div>
+                <div class="modal-body">
+                    <p>This page is still in development. Instructions are simple, whenever there's an audio question, you should be able to translate spoken Japanese to English; there's no hiragana option. 
+                        This grade examines bilingual ability to interpret between Japanese and English. You will receive 30% extra points for effort. Your answer will be keyed against the correct answer. 
+                        For example, if you get 80% correct, the program will award 80% of 1pt total (0.80/1.0).</p>
+                </div>
+                <div class="modal-footer">
+                  <button  class="text-light bg-danger p-2" style = "border-radius: 5px;" id = "closeBtn">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        <h1 class="h1" id="h1" >Lookin Lookin on </h1>
+        <h2 class="h2"  id="h2">君だけの</h2>
+        <h3 class="h3"  id="h3">Shakin shakin on</h3>
+        <h4 class="h4"  id="h4">オリジナル</h4>
+        <img src="dancing-happy.gif" id= "img" class="img" alt="">
+        <img src="happy-dance.gif" id = "img2" class="img2" alt="">
+        <h5 class="h5" id="h5">Rockin Rockin on</h5>
+        <h6 class="h6" id="h6">何度でも</h6>
+        <h7 class="h7" id="h7">Baby going on!</h7> 
+        <img src="./images/sad-pepe.gif" id="pepe" class="pepe" alt="">
+        <img src="./images/166997909516232207 - Copy.png" id="loader" class="kamisato">
     </div>
+
+    <div id = "start-screen" class="bg-light start-screen hidden col-md-8">
+        <div class="header">
+            <span class="questions text-dark">
+                1 / 200questions
+            </span>
+          
+                <!-- Omit any choruses in the song. I don't claim or own any of these songs, they're used for audio comprehension purposes for this quiz application-->
+            <div class="timer">
+                <button class="btn-success c btn-outline-dark text-light mt-5 p-3 " onClick="toggleTimer()">Toggle timer</button>
+                <img src="./images/1014382.jpg" class="kami mb-3">
+                <span class="time-left text-dark"></span>
+            </div>
+            
+            <div class="select-box">
+                <h class="scrollnavH">Navigation</h>
+                <div class="scroller ">
+                    <h>Search w/ voice recognition </h>
+                    <button id = "recognitionBtn" class="btn-success btn-outline-dark text-light searchBtn mb-3">Init voiceRecognition</button>
+                    <input type="text" id = "speechinput" class= "hide" >
+                    <input type="text" id = "input">
+                    <button id = "searchBtn" class="btn-info btn-outline-dark text-light searchBtn">Search</button>
+                    
+                </div>
+              
+                <input type="text" id="speechInput" class="hide">
+                
+            </div>
+        </div>
+
+       <!--header end-->
+        <div id="questionscontainer" class="questionscontainer">
+           
+        </div>
+      
+         <h class="mr-1 mt-3">Your answer</h>
+    <div class="mt-3">
+        <textarea type="text" class="p-2 input" id = "answer"> 
+        </textarea>
+        <button id = "next" class="btn-info btn-outline-dark text-light q mt-1 ">Next</button>
+        <button id = "previous" class="btn-primary btn-outline-dark text-light f mt-1">Previous</button>
+    </div>
+
+</div>
+    
+    <div class="score-container hide text-light col-md-4">
+        <div id = "user-score">Score</div>
+        <button id = "results" class="btn-info text-light restartBtn p-3">Quiz Results</button> 
+        <h class="claire">Name</h>
+        <input type="text" class="p-2 input text-dark" id = "username"> 
+        <button id = "saveScoreBtn" class="btn-success text-light restartBtn p-3">Save score</button> 
+        <button id = "clearBtn" class="btn-danger text-light restartBtn p-3">Clear score</button> 
+        <button class="btn-primary restartBtn p-3"><a href="b+.html" class="text-light" style="text-decoration: none;">Restart</a></button>
+        <button class="btn-warning text-light restartBtn p-3"><a href="level.html" class="text-light" style="text-decoration: none;">Quit</a></button>
+        <div id="highScores">
+            <h10 class="claire">Scores: 5 of your highest scores will display</h10>
+            <ul id="highScoresList"></ul>
+        </div>
+    </div> 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let input2 = document.getElementById("speechinput");
+
+    function initRecognition() {
+        recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.interimResults = true;
+
+        recognition.addEventListener("result", (e) => {
+            const text = Array.from(e.results)
+                .map((result) => result[0])
+                .map((result) => result.transcript)
+                .join("");
+            input2.value = text;
+
+            if (e.results[0].isFinal) {
+                if (input2.value.trim() !== "") {
+                    searchbySpeech();
+                }
+            }
+        });
+
+        recognition.addEventListener("end", () => {
+            if (isRecognitionOn) { //isRecognitionOn currently false, then start
+                recognition.start();
+            }
+        });
+    }
+
+//set recognition flag on/off 
+let isRecognitionOn = false;
+    function toggleRecognition() {
+        isRecognitionOn = !isRecognitionOn;
+
+        if (isRecognitionOn) {
+            alert("Speech recognition on");
+            button.textContent = "Turn off mic";
+            recognition.start();
+        } else {
+            recognition.stop();
+            button.textContent = "Init voiceRecognition";
+            alert("Speech recognition off");
+        }
+    }
+
+        initRecognition();
+        let button = document.getElementById("recognitionBtn");
+        $("#recognitionBtn").on("click", function () {
+            toggleRecognition();
+        });
+
+    function searchbySpeech() {
+        const input3 = document.getElementById("speechinput").value;
+        const convertInput = parseInt(input3);
+        userAnswers[questionsCount] = answerInput.value.trim();
+        if (convertInput >= 1 && convertInput <= mergedQuestions.length) {
+            questionsCount = convertInput - 1;
+            displayQuestion(questionsCount);
+
+            numofQuestions.innerHTML = questionsCount + 1 + " of " + mergedQuestions.length;
+            input.value == "";
+        } else {
+            alert("That is not a valid question");
+        }
+    }
+});
+
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault(); // prevents img dragging
+    });
+
+    let timeLeft = document.querySelector(".time-left");
+    let questionContainer = document.getElementById("questionscontainer");
+    let nextBtn = document.getElementById("next");
+    let numofQuestions = document.querySelector(".questions");
+    let  displayContainer = document.getElementById("start-screen");
+    let answerContainer = document.getElementById("answercontainer");
+    const results = document.getElementById("results");
+    const scoreContainer = document.querySelector(".score-container");
+    const score = document.getElementById("user-score");
+    const quizloading = document.getElementById("quizloading");
+    const submitBtn = document.getElementById("submit");
+    const container1 = document.getElementById("container1");
+    let previousBtn = document.getElementById("previous");
+    let questionsCount;
+    let scoreCount = 0;
+    let setTime = 7200;
+    let countDown;
+    let timerRunning = false; 
+
+    const toggleTimer = () => {
+        if (timerRunning) {
+            clearInterval(countDown);
+            timerRunning = false;
+        } else {
+            countDown = setInterval(() => {
+                setTime--;
+                timeLeft.innerHTML = `${setTime}s`; //left
+                if (setTime === 0) {
+                    clearInterval(countDown);
+                    timerRunning = false;
+                    checkAnswersOnTimeout();
+                }
+            }, 1000);
+            timerRunning = true;
+        }
+    };
+
+    const questionsStorage = [
+        { id: "0", Question: "遊んじょ", answer: "あそんじよ", answer2: "asonjiyo",},
+        { id: "399", Question: "狂乱", answer: "きょうらん" , answer2: "kiyouran" ,},
+    ];
+
+    const audioQuestions = [
+        { id: "400", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "401", Question: "Audio:", audioPath: "audio/asa.mp3", answer: "everybody 皆で 笑って行こうよ！ ないてる 暇なんてない。take it easy いつでも一人じゃない、ほら 元気分けてあげる。smile smiley ために は  しっぱい　あるけど　前向き　に 行こうよ。誰にも負けない　明るい　えがお　で　明日も　smiley shiney day。　今日も目覚ま　しより　早く　起きて　あそん　じゃお。　いちにち　はたった　にゆん　時間　だからね。　いつも　とうる   みちも   同じ　けしき   はないから。みつ けだそうよ  昨日と　違う 何かを。もう一人 きりで　 なやむ　夜も　とび声て。　悲しい　時も　波だ  何て　こぼさない。寂しい　季節　にさよなら　を。そう　強く　なれる　優しい　気持ち　くれた　から。　どんな　時も　えがお 忘れて ないように。今この 時を 大事にして", },
+        { id: "402", Question: "Audio:", audioPath: "audio/Zero no Tsukaima F  OST 04  Heiwa na Gakuin.mp3", answer: "", },
+        { id: "403", Question: "Audio:", audioPath: "audio/Zero no Tsukaima F  OST 04  Heiwa na Gakuin.mp3", answer: "", },
+        { id: "404", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "405", Question: "Audio:", audioPath: "audio/asa.mp3", answer: "everybody 皆で 笑って行こうよ！ ないてる 暇なんてない。take it easy いつでも一人じゃない、ほら 元気分けてあげる。smile smiley ために は  しっぱい　あるけど　前向き　に 行こうよ。誰にも負けない　明るい　えがお　で　明日も　smiley shiney day。　今日も目覚ま　しより　早く　起きて　あそん　じゃお。　いちにち　はたった　にゆん　時間　だからね。　いつも　とうる   みちも   同じ　けしき   はないから。みつ けだそうよ  昨日と　違う 何かを。もう一人 きりで　 なやむ　夜も　とび声て。　悲しい　時も　波だ  何て　こぼさない。寂しい　季節　にさよなら　を。そう　強く　なれる　優しい　気持ち　くれた　から。　どんな　時も　えがお 忘れて ないように。今この 時を 大事にして", },
+        { id: "406", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "407", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+    ];
+   /*
+    const audioQuestionBank = [
+        { id: "400", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "401", Question: "Audio:", audioPath: "audio/asa.mp3", answer: "everybody 皆で 笑って行こうよ！ ないてる 暇なんてない。take it easy いつでも一人じゃない、ほら 元気分けてあげる。smile smiley ために は  しっぱい　あるけど　前向き　に 行こうよ。誰にも負けない　明るい　えがお　で　明日も　smiley shiney day。　今日も目覚ま　しより　早く　起きて　あそん　じゃお。　いちにち　はたった　にゆん　時間　だからね。　いつも　とうる   みちも   同じ　けしき   はないから。みつ けだそうよ  昨日と　違う 何かを。もう一人 きりで　 なやむ　夜も　とび声て。　悲しい　時も　波だ  何て　こぼさない。寂しい　季節　にさよなら　を。そう　強く　なれる　優しい　気持ち　くれた　から。　どんな　時も　えがお 忘れて ないように。今この 時を 大事にして", },
+        { id: "402", Question: "Audio:", audioPath: "audio/Zero no Tsukaima F  OST 04  Heiwa na Gakuin.mp3", answer: "", },
+        { id: "403", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "404", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "405", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "406", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+        { id: "407", Question: "Audio:", audioPath: "audio/audio.mp3", answer: "Lookin Lookin Looking on 君だけの Shakin shakin on オリジナル Rockin Rockin on 何度でも Baby going on", },
+    ];
+*/
+
+function mergeArrays(Array1, Array2, id) {
+    const index = Array1.findIndex(item => item.id === id);
+    
+    if (index !== -1) {
+        Array1.splice(index + 1, 1, ...Array2.map(item => ({ ...item, Question: `` })));
+    } else {
+        console.log(`Item with id ${id} not found in the base array`);
+    }
+
+    return Array1;
+}
+
+mergeArrays(questionsStorage, audioQuestions, "399");
+console.log(questionsStorage);
+
+function calcScore() {
+    const maxQuestions = questionsStorage.length;
+    console.log("calcscore max " + maxQuestions);
+    console.log("calcscore scoreCount " + scoreCount);
+    console.log("calcScore audioCount " +audioCount)
+    const scorePercent = ((scoreCount + audioCount) / (maxQuestions)) * 100; //50 instead of 100 // scoreCount * 2
+    console.log("calcscore " + scorePercent);
+    return scorePercent ;
+}
+
+let audioCount = 0;
+
+const checkAnswersOnTimeout = () => {
+        scoreCount = 0;
+        let loopAudioCount = 0;
+    /*    const questionDiv = document.querySelectorAll(".container-mid")[questionsCount];
+            questionDiv.foreach(questions => {
+            userAnswers[questionsCount] = answerInput.value.trim().toLowerCase();
+        }); */
+
+    for(let i = 0; i < questionsStorage.length; i++) {
+        const userAnswer = userAnswers[i]; // retrieve user's answer
+
+        if (questionsStorage[i].id > 399) {
+            const audioQuestion = audioQuestions.find(audio => audio.id === questionsStorage[i].id);
+
+            if (audioQuestion && audioQuestion.answer && userAnswer !== undefined) {
+                const audioAnswer = audioQuestion.answer;
+                const audioWords = new Set(audioAnswer.split(" ").map(word => word.trim()));
+                const userWords = new Set(userAnswer.split(" ").map(word => word.trim()));
+                const intersect = new Set([...audioWords].filter(x => userWords.has(x)));
+                const matchingPercent = intersect.size / Math.max(audioWords.size, 1);
+
+                loopAudioCount += matchingPercent;
+                if (matchingPercent >= 0.30) {
+                    loopAudioCount += 2 / audioQuestions.length;
+                }
+            /*  const matchingWords = [...audioWords].filter(word => userWords.has(word));
+                if (matchingWords.length > 0.7) {
+                    loopAudioCount += 2 / audioWords.size;
+                } */
+            }
+            } else {
+                if (userAnswer === questionsStorage[i].answer || userAnswer === questionsStorage[i].answer2) {
+                    scoreCount++;
+                }
+            }
+        }  
+      /*  
+    for (let i = 0; i < questionsStorage.length; i++) { 
+       for(let j = 0; j < userAnswers.length; j++){
+            let alreadyChecked = false;
+        if (questionsStorage[i].id > 399 && !alreadyChecked) {
+            const audioQuestion = audioQuestions.find(audio => audio.id === questionsStorage[i].id);
+
+        if (audioQuestion && audioQuestion.answer) { //if audioQuestion answer property found
+            if (userAnswers[j] !== undefined) {
+                const audioAnswer = audioQuestion.answer; 
+                const audioWords = new Set(audioAnswer.split(" ").map(word => word.trim())); //set union target
+                const userWords = new Set(userAnswers[j].split(" ").map(word => word.trim())); //set union compared
+                const intersect = new Set([...audioWords].filter(x => userWords.has(x))); //intersect
+                console.log(intersect); //sets does cut off similar keys
+                console.log(audioWords);
+                console.log(userWords);
+
+                const matchingPercent = intersect.size / Math.max(audioWords.size, 1); 
+                loopAudioCount += matchingPercent;
+                console.log("loopaudioCount " + loopAudioCount);
+                console.log("matchingpercent " + matchingPercent);
+
+               // alreadyChecked = true; // checked for this question. //remove for testing purposes
+                console.log(`i=${i}, j=${j}, matchingPercent=${matchingPercent}, loopAudioCount=${loopAudioCount}`);
+            if(matchingPercent >= 0.30){ //if percent above 0.30, award additional points
+                loopAudioCount += (audioQuestions.length / 4); // /5 change for testing
+                console.log(loopAudioCount);
+            }else{
+         
+                console.log(matchingPercent);
+            }
+            }
+          }
+        } else{
+            if(questionsStorage[i].id <= 399){
+                if(userAnswers[j] === questionsStorage[i].answer || userAnswers[j] === questionsStorage[i].answer2){
+                scoreCount++;
+                console.log("ScoreCount " + scoreCount);
+            }
+         }
+        }
+       } 
+    }  
+    */
+        audioCount = loopAudioCount; 
+        displayContainer.classList.add("hide");
+        scoreContainer.classList.remove("hide");
+
+        const percentage = calcScore();
+        console.log(calcScore());
+        score.innerHTML = "Your score is " + percentage.toFixed(2) + "%" + " out of 100%";
+        return percentage;
+        highScoresList.innerHTML = highScores
+            .filter(score => typeof score.score === 'number') // typeof of score is a number = filter score is type of number
+            .map(score => {
+                return `<li class="high-score">${score.name} - ${score.score.toFixed(2)}% out of 100%</li>`;
+        });
+    };
+
+    let userAnswers = new Array();
+    const answerInput = document.getElementById("answer");
+    let shouldClearAnswers = true;
+
+    function displayCorrectAnswer() {
+        for (let i = 0; i < questionsStorage.length; i++) {
+            const questionDiv = document.querySelectorAll(".container-mid")[i];
+            const correctAnswers = questionsStorage[i].answer + " or " + questionsStorage[i].answer2;
+            const correctAnswerElement = document.createElement("p");
+            correctAnswerElement.classList.add("correct");
+            correctAnswerElement.innerHTML = "Correct Answer: " + correctAnswers;
+            questionDiv.appendChild(correctAnswerElement);
+        }
+    }
+
+    function clearCorrectAnswers() {
+        if (shouldClearAnswers) {
+            const questionDiv = document.querySelectorAll(".container-mid")[questionsCount];
+            const existingCorrectAnswers = questionDiv.querySelectorAll(".correct");
+
+            existingCorrectAnswers.forEach(correctAnswer => {
+                correctAnswer.remove();
+            });
+        }
+    }
+
+    let percentage;
+
+    nextBtn.addEventListener("click", () => {
+        if (answerInput.value.trim() !== "") { //if input isnt empty, we save string
+            userAnswers[questionsCount] = answerInput.value.trim().toLowerCase();
+            console.log(userAnswers);
+        }
+
+        if (questionsCount === mergedQuestions.length - 1) {
+            displayContainer.classList.add("hide");
+            scoreContainer.classList.remove("hide");
+        
+            const final = checkAnswersOnTimeout();
+            percentage = calcScore();
+            score.innerHTML = "Your score is " + percentage.toFixed(2) + "%" + " out of 100%"; 
+            checkAnswer(questionsCount);
+            highScoresList.innerHTML = highScores
+            .filter(score => typeof score.score === 'number') // Filter out invalid entries
+            .map(score => {
+                return `<li class="high-score">${score.name} - ${score.score.toFixed(2)}%</li>`;
+            }).join("");
+            }else{
+                questionsCount++;
+                numofQuestions.innerHTML = questionsCount + 1 + " of " + mergedQuestions.length;
+                answerInput.value = userAnswers[questionsCount] || "";
+                clearCorrectAnswers();
+                nextQuestion(questionsCount);
+            } 
+    });
+
+    let negprevQ = false;
+    previousBtn.addEventListener("click", () => {
+            // Save the user's answer for the current question
+            if(questionsCount <= 0){
+                negprevQ = true;
+                return;
+            }else{
+                userAnswers[questionsCount] = answerInput.value.trim();
+                questionsCount--;
+                numofQuestions.innerHTML = questionsCount + 1 + " of " + mergedQuestions.length;
+                previousQuestion(questionsCount);
+                answerInput.value = userAnswers[questionsCount] || "";  // Load the user's answer for the previous question
+                clearCorrectAnswers();
+            }
+    });
+
+    const previousQuestion = (questionIndex) => {
+        let quiz = document.querySelectorAll(".container-mid");
+
+        quiz.forEach((card) => {
+            card.classList.add("hide");
+        });
+        quiz[questionIndex].classList.remove("hide");
+    };
+
+    const nextQuestion = (questionIndex) => {
+        let quiz = document.querySelectorAll(".container-mid");
+        if (questionIndex.id >= 399) {
+            let audio = document.createElement("audio");
+            audio.setAttribute("controls", "controls");
+            audio.setAttribute("src", i.audioPath); 
+            div.appendChild(audio);
+            let startScreen = document.getElementById("start-screen");
+   
+            startScreen.style.height = "90vh";
+    
+        }
+        quiz.forEach((card) => {
+            card.classList.add("hide");
+        });
+        quiz[questionIndex].classList.remove("hide");
+    }; 
+
+    function displayQuestion(questionIndex) {
+        const questionContainer = document.querySelectorAll(".container-mid");
+        questionContainer.forEach((card) => {
+            card.classList.add("hide");
+        });
+        questionContainer[questionIndex].classList.remove("hide");
+        numofQuestions.innerHTML = questionsCount + 1 + " / " + mergedQuestions.length;
+        answerInput.value = userAnswers[questionsCount] || "";
+        clearCorrectAnswers();
+    }
+
+   
+searchBtn.addEventListener("click", () => {
+    const input = document.getElementById("input").value;
+    const convertInput = parseInt(input); 
+    userAnswers[questionsCount] = answerInput.value.trim();
+
+function searchQuestions(questionIndex) {
+        const questionContainer = document.querySelectorAll(".container-mid");
+        questionContainer.forEach((card) => {
+            card.classList.add("hide");
+        });
+        questionContainer[questionIndex].classList.remove("hide");
+        if (questionsCount < questionsStorage.length) {
+
+        numofQuestions.innerHTML = questionsCount  + " / " + questionsStorage.length;
+        answerInput.value = userAnswers[questionsCount] || "";
+        clearCorrectAnswers();
+    }
+}
+
+    if (convertInput >= 1 && convertInput <= questionsStorage.length) {
+        questionsCount = convertInput - 1; 
+        searchQuestions(questionsCount);
+
+        numofQuestions.innerHTML = questionsCount + 1 + " of " + mergedQuestions.length;
+        input.value == "";
+    }else{
+        alert("Enter a valid question to navigate to");
+    }
+});
+
+let mergedQuestions;
+
+    function createQuiz() {
+        questionsStorage.sort(() => Math.random() - 0.5);
+        const limitedQuestions = questionsStorage.slice(0, 5);
+
+        // Concatenate limitedQuestions and audioQuestions
+        mergedQuestions = [...limitedQuestions];
+        mergedQuestions.sort(() => Math.random() - 0.5);
+
+        for (let i of mergedQuestions) {
+            let div = document.createElement("div");
+            div.classList.add("container-mid", "hide");  //adds css style properties
+            
+            //if questionsStorage id above 400, we add audio play
+            if (parseInt(i.id) > 399) {
+            let audio = document.createElement("audio");
+            audio.setAttribute("controls", "controls");
+            audio.setAttribute("src", i.audioPath);
+            audio.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+
+            div.appendChild(audio);
+         //   let startScreen = document.getElementById("start-screen");
+        //    startScreen.style.height = "90vh";
+                
+            }
+            let question_div = document.createElement("p");
+            question_div.classList.add("question");
+            question_div.innerHTML = i.Question;
+            div.appendChild(question_div);
+            questionContainer.appendChild(div);
+        }
+    }
+
+    function initial() {
+        questionContainer.innerHTML = "";
+        questionsCount = 0;
+        scoreCount = 0;
+    //set the timer for quiz
+        setTime = 500000;
+        createQuiz();
+        displayQuestion(questionsCount);
+        displayContainer.classList.remove("hide");
+        scoreContainer.classList.add("hide"); 
+
+        modal.style.display = "block";
+      //  timeLeft.innerHTML = "2hr"; 
+        clearInterval(countDown); 
+    }
+
+    loader.addEventListener("click", () => {
+    playMusic();
+    fadeInElements();
+    fadeImg();
+    faideImg();
+    })
+
+//calculate, f(x) the change in x,y for 2d rotation
+    function sohcah(speed){
+        const angle = Math.pi(180/pi);
+        const xSpeed = Math.cos(angle) * speed;
+        const ySpeed = Math.sin(angle) * speed;
+
+        const Position = (xSpeed, ySpeed);
+    }
+
+function rotate() {
+    const target = 12;
+
+    for (let i = 0; i < target; i++) {
+        loader.style.transform = `rotate(${i * 10}deg) * 2`; // Rotate 30 degrees each time 
+        if (i === target) {
+            i = -1; // increment to 0 in the next iteration
+        }
+    }
+}
+
+    window.onload = () => {
+        loadupBar();
+        loader.style.display = "block";  // display loader, css
+
+        setTimeout(() => {
+            timeoutCompleted = true;
+            classListAddHide()
+        }, 10000);  
+    }
+
+    function classListAddHide() {
+    if (timeoutCompleted && !musicRunning) {
+        loader.style.display = "none";
+        displayContainer.classList.remove("hidden");
+        quizloading.classList.add("hide");
+        divTimeLeft.classList.add("hide");
+        divCountDownBar.classList.add("hide");
+        container1.classList.remove("container1");
+        h1.classList.add("hide");
+        h2.classList.add("hide");
+        h3.classList.add("hide");
+        h4.classList.add("hide");
+        h5.classList.add("hide");
+        h6.classList.add("hide");
+        h7.classList.add("hide");
+        img.classList.add("hide");
+        img2.classList.add("hide");
+        pepe.classList.add("hide");
+        initial(); //when audio ends, add classList and display main UI
+
+    }
+}
+
+    function displayCorrectAnswerResultsBtn() {
+        shouldClearAnswers = false; // set to false when displaying correct answers
+        for (let i = 0; i <  mergedQuestions.length; i++) {
+            const questionDiv = document.querySelectorAll(".container-mid")[i];
+            const correctAnswers =  mergedQuestions[i].answer + " or " +  mergedQuestions[i].answer2;
+            const correctAnswerElement = document.createElement("p");
+            correctAnswerElement.classList.add("correct");
+            correctAnswerElement.innerHTML = "Correct Answer: " + correctAnswers;
+            questionDiv.appendChild(correctAnswerElement);
+        }
+    }
+
+    results.addEventListener("click", ()=> {
+        questionsCount = 0; // resets questionsCount to 0
+        clearInterval(countDown);
+        timerRunning = false;
+        displayQuestion(questionsCount); 
+        shouldClearAnswers = true;
+        displayCorrectAnswerResultsBtn() 
+        displayContainer.classList.remove("hide");
+        scoreContainer.classList.add("hide");
+    });
+
+    function checkAnswer(question, input) {
+        const userInput = input.value.trim();
+        const correctAnswers = [question.answer, question.answer2].filter(Boolean); // Filter out empty answers
+        if (correctAnswers.includes(userInput)) {
+            scoreCount++
+            displayCorrectAnswer("Correct Answer: " + correctAnswers.join(" or "));
+        }
+    }
+
+    // loadup bar
+    function loadupBar(){
+        var divTimeLeft = document.getElementById("divTimeLeft");
+        var divCountDownBar = document.getElementById("divCountDownBar");
+        var startTimer = setInterval(barCount, 11);
+        function barCount(){
+            if(divTimeLeft.clientWidth < divCountDownBar.clientWidth){
+                divTimeLeft.style.width = divTimeLeft.clientWidth + 1.4 + "px";
+                }else{
+                    divTimeLeft.style.width = divCountDownBar.clientWidth + "px";
+                    clearInterval(startTimer);
+                }
+            }
+    }
+
+    let timeoutCompleted = false; 
+    let musicRunning = false;
+    let audio;
+    function playMusic(){
+            audio = new Audio("audio.mp3");
+        if(musicRunning){
+            audio.stop();
+        }else{
+            audio.play();
+            musicRunning = true;
+        }
+        audio.addEventListener("ended", () => {
+            timeoutCompleted = true; 
+            musicRunning = false;
+            classListAddHide()
+            initial();
+    });
+    musicRunning = true;
+    audio.play();
+    }
+
+    let h1 = document.getElementById("h1");
+    let h2 = document.getElementById("h2");
+    let h3 = document.getElementById("h3");
+    let h4 = document.getElementById("h4");
+    let h5 = document.getElementById("h5");
+    let h6 = document.getElementById("h6");
+    let h7 = document.getElementById("h7");
+    let img = document.getElementById("img");
+    let img2 = document.getElementById("img2");
+    let pepe = document.getElementById("pepe");
+
+    const modal = document.getElementById("myModal");
+    const closeSpan = document.getElementById("closeBtn");
+
+closeSpan.addEventListener("click", () => {
+        modal.style.display = "none";
+
+    });
+
+function faideImg(){
+        fadeIn(pepe, 8000, function () { 
+            setTimeout(() => {
+                fadeOut(pepe, 1, function () {                                          
+                            });
+                    }, 1200);
+                });
+            };
+                                                                                        
+function fadeImg(){
+        fadeIn(img, 4000, function () { 
+            setTimeout(() => {
+                fadeOut(img, 1, function () { 
+                    fadeIn(img2, 2000, function () { 
+                        setTimeout(() => {
+                            fadeOut(img2, 100, function () { 
+                                });
+                            }, 1000);
+                        });
+                    });
+                }, 1200);
+            });
+        };
+                                                                                                                                                                                                                                              
+    function fadeInElements() {
+        fadeIn(h1, 2000, function () {
+            setTimeout(() => {
+                fadeOut(h1, 500, function () {
+                    fadeIn(h2, 1000, function () {
+                        setTimeout(() => {
+                            fadeOut(h2, 20, function () {
+                                fadeIn(h3, 500, function () {
+                                    setTimeout(() => {
+                                        fadeOut(h3, 200, function () {
+                                            fadeIn(h4, 400, function () {
+                                                setTimeout(() => {
+                                                    fadeOut(h4, 20, function () {
+                                                        fadeIn(h5, 200, function () {
+                                                            setTimeout(() => {
+                                                                fadeOut(h5, 200, function () {
+                                                                    fadeIn(h6, 300, function () {
+                                                                        setTimeout(() => {
+                                                                            fadeOut(h6, 1, function () {
+                                                                                fadeIn(h7, 400, function () {
+                                                                                    setTimeout(() => {
+                                                                                        fadeOut(h7, 500, function () {
+                                                                                        });
+                                                                                        //
+                                                                                        }, 1000);
+                                                                                    });
+                                                                                });
+                                                                            }, 1000);
+                                                                        });
+                                                                    });
+                                                                }, 1000);
+                                                            });
+                                                        });
+                                                    }, 600);
+                                                });
+                                            });
+                                        },1000);
+                                    });
+                                });
+                            });
+                        });
+                    });
+                }, 1000);
+            });
+        };
+        
+    function fadeIn(element, duration, callback) {
+        element.style.display = "block";
+        element.style.opacity = 0;
+        const start = performance.now();
+
+        function animate(time) {
+            let timeFraction = (time - start) / duration;
+            if (timeFraction > 1) timeFraction = 1;
+            element.style.opacity = timeFraction;
+            if (timeFraction < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                if (callback) callback();
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    function fadeOut(element, duration, callback) {
+        element.style.opacity = 1;
+        const start = performance.now();
+        function animate(time) {
+            let timeFraction = (time - start) / duration;
+            if (timeFraction > 1) timeFraction = 1;
+            element.style.opacity = 1 - timeFraction;
+            if (timeFraction < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                element.style.display = "none";
+                if (callback) callback();
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    
+/*
+    function fadeImg() {
+    let delay = 1200;
+    for (let i = 0; i < elements.length; i++) {
+        fadeInAndOut(elements[i], 2000, delay, i, function () {
+            if (i === elements.length - 1) {
+                fadeOut(elements[i], 1000);
+            }
+        });
+        delay += 1200;
+    }
+}
+
+function fadeInAndOut(element, duration, delay, index, callback) {
+    setTimeout(() => {
+        element.style.display = "block";
+        let startTime = performance.now();
+        const minOpacity = 0;
+        const maxOpacity = 1;
+        const step = 1 / (duration / 1000); //steps r based on duration
+
+        function animate() {
+            let currentTime = performance.now();
+            let timeFraction = (currentTime - startTime) / duration;
+
+            if (timeFraction < 1) {
+                let opacity = minOpacity + timeFraction * (maxOpacity - minOpacity);
+                element.style.opacity = opacity;
+                requestAnimationFrame(animate);
+            } else {
+                element.style.opacity = maxOpacity;
+                if (callback) callback();
+            }
+        }
+
+        animate();
+    }, delay);
+}
+
+function fadeOut(element, duration, callback) {
+    let startTime = performance.now();
+    const minOpacity = 1;
+    const maxOpacity = 0;
+    const step = 1 / (duration / 1000); 
+
+    function animate() {
+        let currentTime = performance.now();
+        let timeFraction = (currentTime - startTime) / duration;
+
+        if (timeFraction < 1) {
+            let opacity = minOpacity - timeFraction * (minOpacity - maxOpacity);
+            element.style.opacity = opacity;
+            requestAnimationFrame(animate);
+        } else {
+            element.style.opacity = maxOpacity;
+            element.style.display = "none";
+            if (callback) callback();
+        }
+    }
+*/
+
+//mobile landscape adjustment
+var portraitMode;
+
+window.addEventListener("resize", windowSizeChanged);
+
+addEventListener("load", function() {
+  portraitMode = window.innerHeight > window.innerWidth;
+  document.getElementById("viewport").setAttribute("content", "width=" + window.innerWidth + ", height=" + window.innerHeight + ", initial-scale=1.0, maximum-scale=1.0, user-scalable=0");
+})
+
+function windowSizeChanged() {
+  if (((portraitMode === true) && (window.innerHeight < window.innerWidth)) || ((portraitMode === false) && (window.innerHeight > window.innerWidth))) {
+    portraitMode = window.innerHeight > window.innerWidth;
+    document.getElementById("viewport").setAttribute("content", "width=" + window.innerWidth + ", height=" + window.innerHeight + ", initial-scale=1.0, maximum-scale=1.0, user-scalable=0");
+  }
+}
+
+//scores storage 
+const saveScoreBtn = document.getElementById("saveScoreBtn");
+const username = document.getElementById("username");
+const highScoresList = document.getElementById("highScoresList");
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const clear = document.getElementById("clearBtn");
+const maxScores = 5;
+
+clear.addEventListener("click", () => {
+    localStorage.clear(); 
+    highScoresList.innerHTML = ''; 
+    console.log(highScores);
+});
+
+function saveScore() {
+    Score = calcScore();
+
+    if (username.value === "") {
+        alert("Please enter a name before saving your score");
+        return;
+    }
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    const newScore = { name: username.value, score: Score };
+
+    highScores.push(newScore);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(maxScores);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    console.log("Saved Score:", newScore);
+    
+highScoresList.innerHTML = highScores
+  .filter(score => typeof score.score === 'number') 
+  .map(score => {
+    return `<li class="high-score">${score.name} - ${score.score.toFixed(2)}% out of 100%</li>`;
+  })
+  .join("");
+}
+
+console.log(highScores);
+saveScoreBtn.addEventListener("click", () => {
+    saveScore();
+    username.value = "";
+    console.log(highScores);
+});
+    </script>
 </body>
 </html>
