@@ -297,7 +297,7 @@
         }
 
         .kami{
-            width: 65%; /*change*/
+            width: 64%; /*change*/
             height: 100%;
             user-select: none;
             -moz-user-select: none;
@@ -439,6 +439,10 @@ flex-direction: start;
 flex: start;
 }
 
+#closeBtn:hover{
+    background-color: aliceblue;
+    color: black;
+}
 
     </style>
 </head>
@@ -460,8 +464,7 @@ flex: start;
                 </div>
                 <div class="modal-body">
                     <p>This page is still in development. Instructions are simple, whenever there's an audio question, you should be able to translate spoken Japanese to English; there's no hiragana option. 
-                        This grade examines bilingual ability to interpret between Japanese and English. You will receive 30% extra points for effort. Your answer will be keyed against a collection of words
-                        to determine a correct answer. 
+                        This grade examines bilingual ability to interpret between Japanese and English. You will receive 30% extra points for effort. Your answer will be keyed against the correct answer. 
                         For example, if you get 80% correct, the program will award 80% of 1pt total (0.80/1.0).</p>
                 </div>
                 <div class="modal-footer">
@@ -493,7 +496,7 @@ flex: start;
           
                 <!-- Omit any choruses in the song. I don't claim or own any of these songs, they're used for audio comprehension purposes for this quiz application-->
             <div class="timer">
-                <button class="btn-success c btn-outline-dark text-light mt-5 p-3 " onClick="toggleTimer()">Toggle timer</button>
+                <button class="btn-success c btn-outline-dark text-light mt-5 p-3 " id = "toggleTimer" onClick="toggleTimer()">Toggle timer</button>
                 <img src="./images/1014382.jpg" class="kami mb-3">
                 <span class="time-left text-dark"></span>
             </div>
@@ -536,7 +539,7 @@ flex: start;
         <input type="text" class="p-2 input text-dark" id = "username"> 
         <button id = "saveScoreBtn" class="btn-success text-light restartBtn p-3">Save score</button> 
         <button id = "clearBtn" class="btn-danger text-light restartBtn p-3">Clear score</button> 
-        <button class="btn-primary restartBtn p-3"><a href="b+.html" class="text-light" style="text-decoration: none;">Restart</a></button>
+        <button class="btn-primary restartBtn p-3"><a href="a+.html" class="text-light" style="text-decoration: none;">Restart</a></button>
         <button class="btn-warning text-light restartBtn p-3"><a href="level.html" class="text-light" style="text-decoration: none;">Quit</a></button>
         <div id="highScores">
             <h10 class="claire">Scores: 5 of your highest scores will display</h10>
@@ -640,15 +643,19 @@ let isRecognitionOn = false;
     let setTime = 7200;
     let countDown;
     let timerRunning = false; 
+    let toggleTimerBtn = document.getElementById('toggleTimer')
 
     const toggleTimer = () => {
         if (timerRunning) {
             clearInterval(countDown);
+            toggleTimerBtn.textContent = "Resume timer"
             timerRunning = false;
         } else {
             countDown = setInterval(() => {
                 setTime--;
+                toggleTimerBtn.textContent = "Stop timer"
                 timeLeft.innerHTML = `${setTime}s`; //left
+                
                 if (setTime === 0) {
                     clearInterval(countDown);
                     timerRunning = false;
