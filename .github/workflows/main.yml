@@ -1,0 +1,17 @@
+name: Linter
+
+on: push
+
+jobs:
+  super-lint:
+    name: Codebase
+    runs-on: windows-latest  # Corrected from window-lastest to windows-latest
+    steps:  # Added steps key
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Linter
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Corrected syntax for secrets
