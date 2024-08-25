@@ -5,8 +5,8 @@ on: push
 jobs:
   super-lint:
     name: Codebase
-    runs-on: windows-latest  # Corrected from window-lastest to windows-latest
-    steps:  # Added steps key
+    runs-on: ubuntu-latest  
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -14,4 +14,4 @@ jobs:
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Corrected syntax for secrets
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
